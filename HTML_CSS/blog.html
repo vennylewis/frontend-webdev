@@ -1,0 +1,110 @@
+<!-- 
+    HTML5 Semantic Tags: header, footer, aside, main, article, nav, section, details
+    CSS can be embedded in between the head tags with style tag, and specify the styling based on the ID of semantic tags and what not
+    meta tag is seen by Google, for SEO i think?
+
+    CSS can be inline, internal and external
+    Below is internal, which is declared in a style tag
+    If external, how to call it would be to add 
+    <link rel ="stylesheet" type="text/css" href="css/style.css" -> directory>
+    in the external CSS file instead:
+    selector{ property: value; } //selector for id attribute start with #, while for class with ., you can specify styling for a class within another class eg
+    .my-form .form-group{...} -> label can hv CSS called display: block
+    .my-form input[type ="text"], .my-form textarea{...}
+    selector: state as well eg a:hover{ prop: val}, a: active{color: green}, a:visited{color: yellow}
+    
+    some properties: background-color, color, 
+    font-family comes in two or threes (Arial, Helvetica, sans-serif), font-size (px), font-weight OR written tgt as font: normal Arial, Helvetica, sans-serif
+    text-decoration, text-transform, letter-spacing, word-spacing
+    text-align
+    
+    line-height (em -> for responsive type websites), 
+    (margin, border, padding for layout) margin (num, or auto) either specify each margin-top, margin-bottom, margin-right, margin-left, YOU CAN margin: 5px 10px 5px 10 px (TRBL) or margin: 5px 10 px (TB RL),
+    width (number or percentage -> responsive)  min-height -> responsive vs height
+    border-radius, eg of border css -> border-bottom: dotted 1px #333
+    list-style
+    overflow: hidden
+
+    for layout, float (left, center, right), box-sizing:border-box (applies padding, border etc into the sizing of the width percentage), 
+    Positioning: static (by default), relative, absolute (to block that has a relative positioning or whole HTML file),
+    fixed (400px in the browser, despite scrolling), initial (default), inherit (from parent prop)
+    bavkground: color, background-image: url('directory')
+    background-position, background-repeat: no-repeat, background-position: center center
+    
+    Attributes: Class vs id, where id is going to be unique, but class is for reusability, no need unique
+    Pseudo-class? .my-list li:first-child{...}, .my-list li:last-child{...}, .my-list li:nth-child(5 or even/odd){...}, 
+    @media(max-width:600px) { #main{} #sidebar{}} -> responsive to phone size etc 
+    -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Blog</title>
+        <meta name="description" content="Awesome blog by Venny">
+        <meta name="keywords" content="web design blog, web dev blog">
+        <style type="text/css">
+            #main-header{
+                text-align:center;
+                background-color:black;
+                color:white;
+                padding:10px;
+            }
+
+            #main-footer{
+                text-align: center;
+                font-size:18px;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="main-header">
+            <h1>My Website</h1>
+        </header>
+
+        <a href="index.html">Go to index
+
+        </a>
+
+        <section> 
+            <article class="post">
+                <h3>Blog Post One</h3>
+                <small>Posted by Venny</small>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil sed numquam repudiandae dolorum excepturi, recusandae fugit voluptas facere. Modi dicta voluptatum iusto odit, eum fuga vero provident minima nulla aut!
+                    <a href="post.html">Read More</a>
+                </p> 
+            </article>
+            <article class="post">
+                <h3>Blog Post Two</h3>
+                <small>Posted by Venny</small>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil sed numquam repudiandae dolorum excepturi, recusandae fugit voluptas facere. Modi dicta voluptatum iusto odit, eum fuga vero provident minima nulla aut!
+                    <a href="post.html">Read More</a>
+                </p> 
+            </article>
+            <article class="post">
+                <h3>Blog Post Three</h3>
+                <small>Posted by Venny</small>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil sed numquam repudiandae dolorum excepturi, recusandae fugit voluptas facere. Modi dicta voluptatum iusto odit, eum fuga vero provident minima nulla aut!
+                    <a href="post.html">Read More</a>
+                </p> 
+            </article>
+        </section>
+
+        <aside>
+            <h3>Categories</h3>
+            <nav>
+                <ul>
+                    <li><a href="#">Category 1</a></li>
+                    <li><a href="#">Category 2</a></li>
+                    <li><a href="#">Category 3</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <footer id="main-footer">
+            <p> Copyright &copy; 2017, My Website</p>
+        </footer>
+    </body>
+</html>

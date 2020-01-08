@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Crash Course | Selectors</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js
+        "></script>
+        <style>
+            body{
+                font-size:17px;
+                font-family: arial;
+                background:#f4f4f4;
+                line-height: 1.5em;
+            }
+            header{
+                background:#333;
+                color:#fff;
+                padding:20px;
+                text-align: center;
+                border-bottom:4px #000 solid;
+                margin-bottom:10px;
+            }
+            #container{
+                width:90%;
+                margin:auto;
+                padding:10px;
+            }
+            .myClass{
+                color: blue;
+                background:black;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>jQuery Crash Course</h1>
+        </header>
+        <div id="container">
+            <h1 id="heading1">Heading One</h1>
+            <p class="para1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. <span>Cum ea veniam earum iusto, mollitia quas consectetur harum modi architecto </span> magni iste, error provident nulla. Sit aspernatur expedita quasi quos aut.
+            </p>
+
+            <h1 class="heading2">Heading Two</h1>
+            <p class="para2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. <span>Cum ea veniam earum iusto, mollitia quas consectetur harum modi architecto </span> magni iste, error provident nulla. Sit aspernatur expedita quasi quos aut.
+            </p>
+
+            <ul id="list">
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+            </ul>
+
+            <input type="button" value="Button 1"> 
+            <input type="submit" value="Button 1"> 
+            <input type="text"> 
+
+            <a href="http://google.com">Google</a>
+            <a href="http://yahoo.com">Yahoo</a>
+
+            <h1>Mouse Events</h1>
+            <button id="bttn1">Button 1</Button>
+            <button id="bttn2">Button 2</Button>
+
+            <p id="coords"></p>
+
+            <hr>
+            <form id="form">
+                <label>Name</label>
+                <input type="text" id="name" name="name">
+                <br>
+                <label>Email</label>
+                <input type="text" id="email" name="email">
+                <br>
+                <label>Gender</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+            <div id="myDiv"></div>
+            <input type="text" id="newItem">
+            <ul id="users"></ul>
+        </div>
+
+        <script>
+        // This is where jQuery is defined. How jQuery is different from CSS is that it has more functionality to change the CSS by common attributes, not by virue of position or container
+        // where $('...') is an order to grab whatever is in the ... and undergo it with a method
+        // Selectors
+        // hide() is a method where the defined tags will not be shown in the website
+            // Selectors based on id and class, and can nest it as well
+            // $('h2#heading2').hide();
+            // or ('.heading2') also works
+            // $('h1.heading2').hide();
+            // $('p span').css('color', 'red');
+            // Selectors on pseudo class as well
+            // $('ul#list li:first').css('color', 'red');
+            // $('ul#list li:nth-child(3n)').css('background-color', 'yellow');
+            // Selectors can be the value in a type attribute as well
+            // $(':submit').hide();
+            // // Selectors can be anything w href
+            // $('[href]').css('color', 'red');
+            // $('a[href="http://yahoo.com"]').css('color', 'green');
+            // * is a wilcard for anything
+            // $('*').hide();
+
+        // Events
+        // This can also be declared at the head. If put here, not necessary to have the document ready function wrapper
+        $(document).ready(function(){
+            // $('#bttn1').click(function(){
+            //     alert('Button Clicked!');
+            // });
+
+            // Above and below work the same way
+            // $('#bttn1').on('click', function(){
+            //     alert('Button Clicked!');
+            // });
+
+            // $('#bttn1').on('click', function() {
+            //     // $('.para2').hide(); + when you have another button to .show() is the same as 1 button to toggle both
+            //     $('.para2').toggle();
+            // });
+
+            //dbclick, hover shorthand syntax(can't be used inside on('event', function) because it is not an actual event, but a combi of mouseenter and mouseleave)
+            //mousemove, mouseup, mousedown (press and dont release)
+            // $('#bttn1').dbclick(function(){
+            //     $('.para2').toggle();
+            // });
+
+            // $('#bttn1').click(function(e){
+            //    console.log(e);
+            //     // console.log(e.currentTarget.id); will give bttn1
+            //     // console.log(e.currentTarget.innerHTML); will give bttn1
+            //     // console.log(e.currentTarget.outerHTML); will give the outer tag as well as the attributes
+            //     // console.log(e.currentTarget.className);
+            // });
+
+            //Get coords of mouse
+            // $(document).on('mousemove', function(e) {
+            //     // console.log('Coords: Y: '+ e.clientY + ' X: '+ e.clientX); or append, but it just adds on and on and on
+            //     $('#coords').html('Coords: Y: '+ e.clientY + ' X: '+ e.clientX);
+            // });
+
+            // FORM events
+            // Focus & Blur (opposite of focus) Events
+            // $('input').focus(function(){
+            //     alert('Focus');
+            //     //this is to show that u are focusing on this particular box
+            //     $(this).css('background', 'pink');
+            // });
+
+            // $('input').blur(function(){
+            //     $(this).css('background', 'white');
+            // });
+
+            // $('input').keyup(function(e) {
+            //     console.log(e.target.value);
+            // });
+
+            // $('select#gender').change(function(e) {
+            //     alert(e.target.value);
+            // });
+
+            // $('#form').submit(function(e){
+            //     // must prevent submission in order to see the console log
+            //     e.preventDefault();
+            //     var name = $('input#name').val();
+            //     console.log(name);
+            // });
+
+            // DOM Manipulation, CSS method can be 'stacked' 
+            // $('p.para1').css({color:'red', background:'#ccc'});
+            // $('p.para2').addClass('myClass');
+            // $('p.para2').removeClass('myClass');
+            // Combines the add and remove class above
+            // $('#bttn1').click(function(){
+            //     $('p.para2').toggleClass('myClass');
+            // });
+
+            // Have a text value inside Div
+            // $('#myDiv').text('Hello World');
+            // $('#myDiv').html('<h3>Hello World</h3>');
+            // .text() gets the value of text in myDiv
+            // alert($('#myDiv').text());
+
+            // Append more list items in ul. Also have empty (just remove list items, but it is still there), detach (remove entirely)
+            // $('ul').append('<li>Append List</li>'); // Also have prepend
+            // $('.para1').prependTo('.para2');
+            // $('ul').before('<h4>Hello</h4>'); //Also have after.
+            // $('a').attr('target', '_blank'); //also removeAttr
+
+            // Wrap (wrap indiv p in diff wraps) vs wrapAll (wrap all the p in 1 wrap)
+            $('p').wrap('<h1>')
+
+            $('#newItem').keyup(function(e){
+                var code = e.which;
+                // where .which gets the unique code of the key that we are pressing
+                // enter is 13
+                if(code == 13) {
+                    e.preventDefault();
+                    $('ul').append('<li>' + e.target.value+ '</li>');
+                }
+            });
+
+            // Array to be looped in .each
+            var myArr = ['Brad', 'Kelley', 'Nate', 'Jose'];
+            // function takes in (index, value) to be input in an empty list to be displayed
+            $.each(myArr, function(i, val){
+                // console.log(val);
+                $('#users').append('<li>'+val+'</li>');
+            })
+
+            var newArr = $('ul#list li').toArray();
+            console.log(newArr);
+        });
+
+            
+        </script>
+
+    </body>
+</html>
