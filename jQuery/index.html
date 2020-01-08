@@ -193,28 +193,50 @@
             // $('a').attr('target', '_blank'); //also removeAttr
 
             // Wrap (wrap indiv p in diff wraps) vs wrapAll (wrap all the p in 1 wrap)
-            $('p').wrap('<h1>')
+            // $('p').wrap('<h1>')
 
-            $('#newItem').keyup(function(e){
-                var code = e.which;
-                // where .which gets the unique code of the key that we are pressing
-                // enter is 13
-                if(code == 13) {
-                    e.preventDefault();
-                    $('ul').append('<li>' + e.target.value+ '</li>');
-                }
-            });
+            // $('#newItem').keyup(function(e){
+            //     var code = e.which;
+            //     // where .which gets the unique code of the key that we are pressing
+            //     // enter is 13
+            //     if(code == 13) {
+            //         e.preventDefault();
+            //         $('ul').append('<li>' + e.target.value+ '</li>');
+            //     }
+            // });
 
             // Array to be looped in .each
-            var myArr = ['Brad', 'Kelley', 'Nate', 'Jose'];
+            // var myArr = ['Brad', 'Kelley', 'Nate', 'Jose'];
             // function takes in (index, value) to be input in an empty list to be displayed
-            $.each(myArr, function(i, val){
-                // console.log(val);
-                $('#users').append('<li>'+val+'</li>');
-            })
+            // $.each(myArr, function(i, val){
+            //     // console.log(val);
+            //     $('#users').append('<li>'+val+'</li>');
+            // })
 
-            var newArr = $('ul#list li').toArray();
-            console.log(newArr);
+            // var newArr = $('ul#list li').toArray();
+            // console.log(newArr);
+
+            // Animation and Effects. fadeOut, fadeIn, fadeToggle, slideDown, slideUp, slideToggle, stop
+            // Inside fadeOut args can be fast, slow, or number in ms
+            // $('#bttn2').click(function() {
+                // $('#myDiv').fadeOut('fast');
+                // OR $('#myDiv').fadeOut(3000, function(){
+                //     $('#bttn2').text('It's Gone');
+                // })
+            // })
+
+            // animate properties are left, right, height, width (resize), opacity, 
+            // $('#moveRight').click(function(){
+            //     $('#box2').animate({
+            //         left: 500,
+            //         height: 500,
+            //     })
+            //      OR
+            //      var box = $('#box2');
+            //      box.animate({
+            //          left:500,
+            //      }) and just repeat itself
+            // })
         });
 
             
